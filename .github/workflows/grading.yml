@@ -29,3 +29,11 @@ jobs:
     steps:
       - name: troubleshooting steps
         run: echo "" #Help the user to troubleshoot the activity
+
+      - uses: actions/checkout@v2
+
+      - name: Grade exercise-publish-package activity
+        id: events
+        uses: ./.github/actions/local-action
+        with:
+          event_ctx: ${{toJSON(github.event)}}
